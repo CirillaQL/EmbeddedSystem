@@ -1,0 +1,73 @@
+<html>
+	<head>
+		<title>七段数码管显示</title>
+	</head>
+	<body>
+		<form method="get" action="DCHome.cgi" name="DCHome">
+		<center>
+			<td>
+				<br><font size="6" face="黑体"> 七段数码管显示</font></br>
+				<br><input type="button" value="+" onclick="sender(1)"/></br>
+				<br><input type="button" value="-" onclick="sender(2)"/></br>
+				
+			</td>
+		</center>
+		<script>
+			function createXHR()  
+			{  
+				var xhr;  
+				try  
+				{  
+					xhr = new ActiveXObject("Msxml2.XMLHTTP");  
+				}  
+				catch(e)  
+				{  
+					try  
+					{  
+						xhr = new ActiveObject("Microsoft.XMLHTTP");  
+					}  
+					catch(E)  
+					{  
+						xhr = false;  
+					}  
+				}   
+				
+				if(!xhr && typeof XMLHttpRequest != 'undefined')  
+				{  
+					xhr = new XMLHttpRequest();  
+				}  
+				return xhr;  
+			}  
+
+			function sender(val)  
+			{  
+				xhr = createXHR();  
+				if(xhr)  
+				{  
+					xhr.onreadystatechange = callbackFunction;  
+					xhr.open("GET","./cgi-bin/DCHome.cgi?"+"weselect"+val); 
+					xhr.send(null);  
+				}  
+				else  
+				{  
+					alert("浏览器不支持，请更换浏览器！");  
+				}  
+			}
+			function callbackFunction()  
+			{  
+				if(xhr.readyState == 4)  
+				{  
+					if(xhr.status == 200)  
+					{  
+						var returnValue = xhr.responseText;  //returnValue为DCHome.cgi返回的结果  
+					}  
+					else  
+					{  
+						alert("页面出现异常！");  
+					}  
+				}  
+			}
+			</script>
+		</form>
+	</body>
+</html>
