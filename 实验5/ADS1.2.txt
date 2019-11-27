@@ -1,0 +1,30 @@
+1:创建工程
+   菜单命令:File|New  ==>创建窗口(Project选项卡)    
+   标准模板:              ARM Executable Image
+   工程名(Project Name):  Exp101
+   存储路径(Location):    D:\Exp101
+   鼠标左击按钮[确定],创建工程
+工程创建内容:    
+    目录:   D:/Exp101
+    内容      Exp101.MCP 工程文件名
+              Exp101_Data 数据目录 {子目录\Debug \DebugRel \Release}
+2:创建源程序文件
+  菜单命令:File|New  ==>创建窗口(File选项卡)
+  文件名(File Name): main.s
+  存储目录(Location): D:\Exp101
+  加入工程:Add To Project 选中
+  编译输出选项(Targets):Debug\DebugRel\Release 全选
+  鼠标左击按钮[确定],创建源程序文件
+
+3:编译链接参数配置
+  菜单命令:Edit|Debug Settings
+  左侧树型窗口:选择 Linker|ARM Linker
+  右侧 
+    OutPut选项卡配置如下 
+	  RO Base:程序存储区首地址(0x40000000)
+	  RW Base:数据存储区首地址(0x40003000) 
+    Options选项卡配置如下
+          Image Entry Point:镜像入口点(0x40000000)
+4:录入 编译(Compile:源程序文件名.O) 链接(Make:工程名.axf)
+5:配置调试参数 option
+6:调试
