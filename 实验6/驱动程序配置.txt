@@ -1,0 +1,17 @@
+1:IDE
+  编译、链接参数选择默认
+  即不配置 RO Base\RW Base \Image Entry Pint
+2:创建工程
+  模板：ARM Executable Image for MagicARM2200
+
+3:AxD  Debugger配置
+(1)实验箱电源打开
+(2)Target Connection
+   Options|Configure Interface
+
+   Target Connection:Attach
+(3)Target Environments
+   Options|Configure Targets
+   选择: EasyJTag
+         Processor:LPC2290
+      
