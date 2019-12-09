@@ -1,0 +1,51 @@
+1、蜂鸣器测试程序
+
+int main(void)
+{
+ PINSEL0= PINSEL0&(~(3<<14));    		// P0.7 GPIO 15:14
+ IO0DIR = 1<<7;        				//设置B1控制口为输出，其他I/O为输入
+  
+ for(;;)
+ {
+  IO0CLR=1<<7;  //响    断点1
+  IO0SET=1<<7;  //不响  断点2
+                //go按钮
+ } 
+ 
+}
+
+
+2、LED1测试程序
+
+int main(void)
+{
+ IO2DIR = 1<<16;    //LED1 p2.16  GPIO 输出 
+
+ for(;;)
+ {
+  IO2CLR=1<<16;  //LED1亮    断点1
+  IO2SET=1<<16;  //LED1不亮  断点2
+                 //go按钮
+ } 
+ 
+}
+
+3、Key1测试程序
+
+int x; 
+int main(void)
+{
+ PINSEL1&=~(3<<8);  //p0.20 GPIO 
+ IO0DIR &=~(1<<20); //p0.20 输入 
+
+ while(1)
+ {
+  x=IO0PIN;      //断点1  Key1按下、释放
+                 //go按钮 观察x[20]的值
+                 //x[20]=0 Key1按下
+                 //x[20]=1 Key1释放状态
+
+ } 
+ 
+}
+
